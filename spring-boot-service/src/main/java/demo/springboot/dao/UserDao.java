@@ -9,6 +9,12 @@ import org.apache.ibatis.annotations.Select;
 
 import demo.springboot.model.Users;
 
+/**
+ * 使用Mapper方式操纵数据库 <br/>
+ * 类UserDao.java的实现描述：TODO 类实现描述
+ * 
+ * @author macma 2016年9月23日 下午5:13:19
+ */
 public interface UserDao {
 
     @Select(value = { "select * from users where username = #{username}" })
