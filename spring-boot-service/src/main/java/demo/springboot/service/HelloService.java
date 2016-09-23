@@ -1,32 +1,31 @@
 package demo.springboot.service;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import java.io.Serializable;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import demo.springboot.dao.UserDao;
+import demo.springboot.model.Users;
 
 /**
  * spring-boot rest服务
  * 
  * @author macma 2016年9月23日 下午1:38:44
  */
-@SpringBootApplication
-@EnableDiscoveryClient
-@RestController
-public class HelloService {
+@Service
+public class HelloService implements Serializable {
 
-    @RequestMapping("/hi")
-    public String hi(@RequestParam MultiValueMap<String, String> params) {
-        System.out.println(params);
-        return "hi:" + params.getFirst("name");
-    }
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -5405586759113170806L;
+    @Autowired
+    private UserDao           userDao;
 
-    ///////
-    public static void main(String[] args) {
-        SpringApplication.run(HelloService.class, args);
+    public List<Users> getAllUserInfo() {
+        return userDao.getAllUserInfo();
     }
 
 }

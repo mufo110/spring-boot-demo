@@ -3,17 +3,24 @@ server:
   port: 1111   # HTTP (Tomcat) port
 
 spring:
-  application:
-     name: spring-boot-service
+
+   datasource:
+      url:  jdbc:mysql://192.168.132.130:32768/test
+      username:  root
+      password:  210053 
+      driverClassName : com.mysql.jdbc.Driver
+      
+   application:
+     name: spring-boot-service 
      
 eureka:
   instance:
-    hostname: ${host} #可以在maven编译时设置参数
+    hostname: 127.0.0.1   #${host} 可以在maven编译时设置参数
   client:
     registerWithEureka: true
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://192.168.132.128:8761/eureka/
+      defaultZone: http://192.168.132.130:8761/eureka/
 
      
      
