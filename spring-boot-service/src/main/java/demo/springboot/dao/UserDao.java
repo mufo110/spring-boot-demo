@@ -20,6 +20,9 @@ public interface UserDao {
     public List<Users> getAllUserInfo();
 
     @Select(value = "insert into users(username,password,enabled) values(#{username},#{password},#{enabled})")
-    public int addUser(@Param("username") String id, @Param("password") String age, @Param("enabled") int name);
+    public void addUser(@Param("username") String id, @Param("password") String age, @Param("enabled") int name);
+
+    @Select(value = "update users set username=#{user.username},password=#{user.password} where username=#{user.username}")
+    public void updateUser(@Param("user") Users user);
 
 }

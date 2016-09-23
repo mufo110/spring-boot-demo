@@ -28,4 +28,16 @@ public class HelloService implements Serializable {
         return userDao.getAllUserInfo();
     }
 
+    public Users getUserInfo(String username) {
+        return userDao.getUserInfo(username);
+    }
+
+    public void saveUser(Users user) {
+        if (userDao.getUserInfo(user.getUsername()) == null) {
+            userDao.addUser(user.getUsername(), user.getPassword(), 1);
+        } else {
+            userDao.updateUser(user);
+        }
+    }
+
 }
