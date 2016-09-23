@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * spring-boot rest服务 类HelloService.java的实现描述：TODO 类实现描述
+ * spring-boot rest服务
  * 
  * @author macma 2016年9月23日 下午1:38:44
  */
